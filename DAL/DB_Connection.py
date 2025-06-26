@@ -11,12 +11,18 @@ def _get_connection():
     )
     return conn
 
-def execute(query):
+def execute(query, params=None, commit=True):
     conn = _get_connection()
     cursor = conn.cursor()
 
     try:
-        cursor.execute(query)
+        if params:
+            cursor.execute(query, params)
+        else:
+            cursor.execute(query)
+            
+        if commit:
+            conn.commit()
 
         query_type = query.strip().split()[0].lower()
 
