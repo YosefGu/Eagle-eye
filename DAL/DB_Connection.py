@@ -1,6 +1,6 @@
 import pymysql
 
-def get_connection():
+def _get_connection():
     conn = pymysql.connect(
         host = "localhost",
         user = "root",
@@ -12,7 +12,7 @@ def get_connection():
     return conn
 
 def execute(query):
-    conn = get_connection()
+    conn = _get_connection()
     cursor = conn.cursor()
 
     try:
