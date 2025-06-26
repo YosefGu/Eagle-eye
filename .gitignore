@@ -1,2 +1,5 @@
 /venv
 /DAL/__pycache__
+/DAL/contrrolers/__pycache__
+/DAL/queries/__pycache__
+/models/__pycache__
