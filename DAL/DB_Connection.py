@@ -1,11 +1,13 @@
-import mysql.connector
+import pymysql
 
 def get_connection():
-    conn = mysql.connector.connect(
+    conn = pymysql.connect(
         host = "localhost",
         user = "root",
-        passord = "",
-        database = "engleeyedb"
+        password = "",
+        database = "eagleeyedb",
+        charset="utf8mb4",
+        cursorclass=pymysql.cursors.DictCursor
     )
     return conn
 
@@ -32,5 +34,5 @@ def execute(query):
     finally:
         cursor.close()
         conn.close()
-        
+
         
