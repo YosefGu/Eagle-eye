@@ -4,13 +4,13 @@ class AgentQueries():
         return "SELECT * FROM agents"
 
     def _get_agent(id):
-        return f"SELECT * FROM agents WHERE id = {id}"
+        return f"SELECT * FROM agents WHERE id = %s"
 
-    def _add_agent(agent):
-        return f"INSERT INTO agents (id, codeName, realName, location, status, missionsCompleted) VALUES ({agent._id}, {agent._code_name}, {agent._real_name}, {agent._location}, {agent._status}, {agent._missions_completed})"
+    def _add_agent():
+        return f"INSERT INTO agents (codeName, realName, location, status, missionsCompleted) VALUES ( %s, %s, %s, %s, %s)"
 
-    def _delete_agent(id):
-        return f"DELETE FROM agents WHERE id = {id}"
+    def _delete_agent():
+        return f"DELETE FROM agents WHERE id = %s"
 
-    def _update_agent(agent):
-        return f"UPDATE agents SET codeName = {agent._code_name}, realName = {agent._real_name}, location = {agent._location}, status = {agent._status}, missionsCompleted = {agent._missions_completed} WHERE id = {agent._id} "
+    def _update_agent():
+        return f"UPDATE agents SET codeName = %s, realName = %s, location = %s, status = %s, missionsCompleted = %s WHERE id = %s "
